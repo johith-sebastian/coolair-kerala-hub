@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BookInstallationRouteImport } from './routes/book-installation'
+import { Route as BookServiceRouteImport } from './routes/book-service'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SellRouteImport } from './routes/sell'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookInstallationRoute = BookInstallationRouteImport.update({
+  id: '/book-installation',
+  path: '/book-installation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookServiceRoute = BookServiceRouteImport.update({
+  id: '/book-service',
+  path: '/book-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellRoute = SellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/book-installation': typeof BookInstallationRoute
+  '/book-service': typeof BookServiceRoute
+  '/contact': typeof ContactRoute
+  '/sell': typeof SellRoute
+  '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/book-installation': typeof BookInstallationRoute
+  '/book-service': typeof BookServiceRoute
+  '/contact': typeof ContactRoute
+  '/sell': typeof SellRoute
+  '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/book-installation': typeof BookInstallationRoute
+  '/book-service': typeof BookServiceRoute
+  '/contact': typeof ContactRoute
+  '/sell': typeof SellRoute
+  '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/auth'
+    | '/book-installation'
+    | '/book-service'
+    | '/contact'
+    | '/sell'
+    | '/services'
+    | '/products/$slug'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/auth'
+    | '/book-installation'
+    | '/book-service'
+    | '/contact'
+    | '/sell'
+    | '/services'
+    | '/products/$slug'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/auth'
+    | '/book-installation'
+    | '/book-service'
+    | '/contact'
+    | '/sell'
+    | '/services'
+    | '/products/$slug'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  AuthRoute: typeof AuthRoute
+  BookInstallationRoute: typeof BookInstallationRoute
+  BookServiceRoute: typeof BookServiceRoute
+  ContactRoute: typeof ContactRoute
+  SellRoute: typeof SellRoute
+  ServicesRoute: typeof ServicesRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +182,92 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-installation': {
+      id: '/book-installation'
+      path: '/book-installation'
+      fullPath: '/book-installation'
+      preLoaderRoute: typeof BookInstallationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-service': {
+      id: '/book-service'
+      path: '/book-service'
+      fullPath: '/book-service'
+      preLoaderRoute: typeof BookServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sell': {
+      id: '/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof SellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  AuthRoute: AuthRoute,
+  BookInstallationRoute: BookInstallationRoute,
+  BookServiceRoute: BookServiceRoute,
+  ContactRoute: ContactRoute,
+  SellRoute: SellRoute,
+  ServicesRoute: ServicesRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
