@@ -11,9 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookInstallationRouteImport } from './routes/book-installation'
 import { Route as BookServiceRouteImport } from './routes/book-service'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SellRouteImport } from './routes/sell'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
@@ -26,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookInstallationRoute = BookInstallationRouteImport.update({
@@ -41,6 +48,11 @@ const BookServiceRoute = BookServiceRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellRoute = SellRouteImport.update({
+  id: '/sell',
+  path: '/sell',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -62,9 +74,11 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/book-installation': typeof BookInstallationRoute
   '/book-service': typeof BookServiceRoute
   '/contact': typeof ContactRoute
+  '/sell': typeof SellRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -72,9 +86,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/book-installation': typeof BookInstallationRoute
   '/book-service': typeof BookServiceRoute
   '/contact': typeof ContactRoute
+  '/sell': typeof SellRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products': typeof ProductsIndexRoute
@@ -83,9 +99,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/book-installation': typeof BookInstallationRoute
   '/book-service': typeof BookServiceRoute
   '/contact': typeof ContactRoute
+  '/sell': typeof SellRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -95,9 +113,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/auth'
     | '/book-installation'
     | '/book-service'
     | '/contact'
+    | '/sell'
     | '/services'
     | '/products/$slug'
     | '/products/'
@@ -105,9 +125,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/auth'
     | '/book-installation'
     | '/book-service'
     | '/contact'
+    | '/sell'
     | '/services'
     | '/products/$slug'
     | '/products'
@@ -115,9 +137,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/auth'
     | '/book-installation'
     | '/book-service'
     | '/contact'
+    | '/sell'
     | '/services'
     | '/products/$slug'
     | '/products/'
@@ -126,9 +150,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
   BookInstallationRoute: typeof BookInstallationRoute
   BookServiceRoute: typeof BookServiceRoute
   ContactRoute: typeof ContactRoute
+  SellRoute: typeof SellRoute
   ServicesRoute: typeof ServicesRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -150,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book-installation': {
       id: '/book-installation'
       path: '/book-installation'
@@ -169,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sell': {
+      id: '/sell'
+      path: '/sell'
+      fullPath: '/sell'
+      preLoaderRoute: typeof SellRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -198,9 +238,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
   BookInstallationRoute: BookInstallationRoute,
   BookServiceRoute: BookServiceRoute,
   ContactRoute: ContactRoute,
+  SellRoute: SellRoute,
   ServicesRoute: ServicesRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
