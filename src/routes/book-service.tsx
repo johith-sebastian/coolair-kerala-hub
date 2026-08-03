@@ -44,7 +44,7 @@ function BookServicePage() {
   const [reference, setReference] = useState<string | null>(null);
   const [category, setCategory] = useState("");
   const [district, setDistrict] = useState("Ernakulam");
-  const [slot, setSlot] = useState(timeSlots[0]);
+  const [slot, setSlot] = useState<string>(timeSlots[0] ?? "");
   const [file, setFile] = useState<File | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {

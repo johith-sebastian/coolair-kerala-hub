@@ -54,7 +54,7 @@ function InstallationPage() {
   const [reference, setReference] = useState<string | null>(null);
   const [serviceType, setServiceType] = useState("installation");
   const [productType, setProductType] = useState("");
-  const [slot, setSlot] = useState(timeSlots[0]);
+  const [slot, setSlot] = useState<string>(timeSlots[0] ?? "");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

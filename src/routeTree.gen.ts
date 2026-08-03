@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BookInstallationRouteImport } from './routes/book-installation'
+import { Route as BookServiceRouteImport } from './routes/book-service'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
@@ -24,6 +26,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookInstallationRoute = BookInstallationRouteImport.update({
+  id: '/book-installation',
+  path: '/book-installation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookServiceRoute = BookServiceRouteImport.update({
+  id: '/book-service',
+  path: '/book-service',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -50,6 +62,8 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book-installation': typeof BookInstallationRoute
+  '/book-service': typeof BookServiceRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -58,6 +72,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book-installation': typeof BookInstallationRoute
+  '/book-service': typeof BookServiceRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -67,6 +83,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book-installation': typeof BookInstallationRoute
+  '/book-service': typeof BookServiceRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -75,14 +93,30 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/contact' | '/services' | '/products/$slug' | '/products/'
+    | '/'
+    | '/about'
+    | '/book-installation'
+    | '/book-service'
+    | '/contact'
+    | '/services'
+    | '/products/$slug'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/contact' | '/services' | '/products/$slug' | '/products'
+    | '/'
+    | '/about'
+    | '/book-installation'
+    | '/book-service'
+    | '/contact'
+    | '/services'
+    | '/products/$slug'
+    | '/products'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/book-installation'
+    | '/book-service'
     | '/contact'
     | '/services'
     | '/products/$slug'
@@ -92,6 +126,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookInstallationRoute: typeof BookInstallationRoute
+  BookServiceRoute: typeof BookServiceRoute
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
@@ -112,6 +148,20 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-installation': {
+      id: '/book-installation'
+      path: '/book-installation'
+      fullPath: '/book-installation'
+      preLoaderRoute: typeof BookInstallationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-service': {
+      id: '/book-service'
+      path: '/book-service'
+      fullPath: '/book-service'
+      preLoaderRoute: typeof BookServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -148,6 +198,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookInstallationRoute: BookInstallationRoute,
+  BookServiceRoute: BookServiceRoute,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
   ProductsSlugRoute: ProductsSlugRoute,
