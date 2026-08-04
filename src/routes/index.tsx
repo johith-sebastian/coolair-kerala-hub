@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Cool Air is Kochi's trusted family-run home appliance service since 2022. AC, fridge, washing machine repair, installation, AMC and quality refurbished appliances with warranty.",
+          "Cool Air is Kochi's trusted family-run home appliance service since 2020. AC, fridge, washing machine repair, installation, AMC and quality refurbished appliances with warranty.",
       },
       {
         property: "og:title",
@@ -75,7 +75,7 @@ function HomePage() {
               REPAIR • BUY • SELL • INSTALL
             </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/80 md:text-lg">
-              Trusted home appliance experts serving Kerala since 2022. Doorstep repair,
+              Trusted home appliance experts serving Kerala since 2020. Doorstep repair,
               professional installation and hand-picked refurbished appliances backed by
               real warranty.
             </p>
