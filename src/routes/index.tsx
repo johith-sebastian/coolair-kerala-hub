@@ -115,7 +115,7 @@ function HomePage() {
           <SectionHeading
             eyebrow="Why Cool Air"
             title="Service that feels premium, priced for real families"
-            description="Four years of appliance work across Kochi has taught us one thing: people come back for honesty, not discounts."
+            description="Six years of appliance work across Kochi has taught us one thing: people come back for honesty, not discounts."
           />
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {highlights.map((item, index) => (

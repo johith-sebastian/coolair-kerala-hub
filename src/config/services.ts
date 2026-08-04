@@ -128,12 +128,12 @@ export const highlights = [
   {
     title: "Warranty on Selected Products",
     description:
-      "Up to 6 months warranty on refurbished appliances and 90 days on major repairs.",
+      "Enjoy a 1-month warranty on all second sale products. We provide free repairs for covered issues within the warranty period.",
   },
 ];
 
 export const stats = [
-  { value: 4, suffix: "+", label: "Years Experience" },
+  { value: 6, suffix: "+", label: "Years Experience" },
   { value: 1800, suffix: "+", label: "Products Sold" },
   { value: 9500, suffix: "+", label: "Services Completed" },
   { value: 7200, suffix: "+", label: "Happy Customers" },
