@@ -6,7 +6,7 @@ export const business = {
   name: "Cool Air",
   tagline: "Repair • Buy • Sell • Install",
   legalName: "Cool Air Home Appliance Service & Sales",
-  foundedYear: 2022,
+  foundedYear: 2020,
   phone: "+91 98470 12345",
   phoneHref: "tel:+919847012345",
   whatsappNumber: "919847012345",
