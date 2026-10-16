@@ -9,7 +9,7 @@ export const business = {
   foundedYear: 2020,
   phone: "+91 9633140231",
   phoneHref: "tel:+919633140231",
-  whatsappNumber: "919633140231",
+  whatsappNumber: "917902380231",
   email: "hello@coolairkochi.in",
   addressLine: "Palarivattom Junction, NH Bypass",
   city: "Kochi",
