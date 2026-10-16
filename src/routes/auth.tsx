@@ -24,6 +24,8 @@ export const Route = createFileRoute("/auth")({
         property: "og:description",
         content: "Cool Air team access for managing bookings and listings.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -35,6 +37,13 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const emailVerified =
+      new URLSearchParams(window.location.search).get("verified") === "1";
+    if (emailVerified) {
+      toast.success("Email verified. Please sign in to continue.");
+      return;
+    }
+
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/admin", replace: true });
     });
@@ -69,7 +78,7 @@ function AuthPage() {
       email: String(data.get("email") ?? "").trim(),
       password,
       options: {
-        emailRedirectTo: window.location.origin,
+        emailRedirectTo: `${window.location.origin}/auth?verified=1`,
         data: { full_name: String(data.get("full_name") ?? "").trim() },
       },
     });
